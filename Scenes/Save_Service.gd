@@ -32,6 +32,7 @@ func loadGame():
 	load_crop_game_state(save_game)
 	clock.passTime(timeToTick);
 	EventBus.emit_signal("gameLoaded")
+	print('test vcs')
 	
 	
 	
