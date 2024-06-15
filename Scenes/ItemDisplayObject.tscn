@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://cyxt172yns1gq"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDisplayObject.gd" id="1_pd5ru"]
+[ext_resource type="Texture2D" uid="uid://cgxkl6ksh32q5" path="res://Assets/sproutlands-premium/objects/Items/All items.png" id="3_7q08k"]
+[ext_resource type="Texture2D" uid="uid://j3fxt5qo4jb2" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/DisplayButton.png" id="3_8lqm0"]
+[ext_resource type="Texture2D" uid="uid://d3rfg6bidxg10" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementNotification.png" id="3_kroi6"]
+[ext_resource type="PackedScene" uid="uid://c40um0xlc4d75" path="res://Scenes/TextObject.tscn" id="4_e1qwj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1dfv"]
+atlas = ExtResource("3_8lqm0")
+region = Rect2(0, 0, 119, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n607n"]
+atlas = ExtResource("3_8lqm0")
+region = Rect2(0, 20, 119, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50e8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1dfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n607n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8nt6"]
+atlas = ExtResource("3_kroi6")
+region = Rect2(250, 240, 125, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxruo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8nt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqxr0"]
+atlas = ExtResource("3_7q08k")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvljf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqxr0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemDisplayObject" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pd5ru")
+
+[node name="SelectablePanel" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_50e8m")
+centered = false
+
+[node name="Panel" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rxruo")
+centered = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 9)
+sprite_frames = SubResource("SpriteFrames_bvljf")
+
+[node name="Description" parent="." instance=ExtResource("4_e1qwj")]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 3.0
+offset_right = 391.0
+offset_bottom = 51.0
+text = "test
+"
+
+[node name="TempButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 20.0
+
+[connection signal="button_down" from="TempButton" to="." method="_on_temp_button_button_down"]

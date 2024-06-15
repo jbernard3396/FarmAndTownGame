@@ -1,0 +1,237 @@
+[gd_scene load_steps=22 format=3 uid="uid://cpqvqyuyucjao"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_3cukc"]
+[ext_resource type="Texture2D" uid="uid://btkiv0xq1vt7p" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/PerkGoldAndLevelFarmHud.png" id="1_fu6gy"]
+[ext_resource type="Script" path="res://Scripts/GoldAmount.gd" id="1_tw0lg"]
+[ext_resource type="Script" path="res://Scripts/ExpGroup.gd" id="2_m8d2e"]
+[ext_resource type="Script" path="res://Scripts/PerkThings/AvailablePerkPoints.gd" id="3_jr112"]
+[ext_resource type="Texture2D" uid="uid://beofccwgr3uru" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/dialog box big (1).png" id="4_2npfd"]
+[ext_resource type="Script" path="res://Scripts/ToolTip.gd" id="4_p5ulb"]
+[ext_resource type="FontVariation" uid="uid://0idecfjj3a8h" path="res://Assets/Fonts/munro/munro_Variation.tres" id="5_4784h"]
+[ext_resource type="Texture2D" uid="uid://ckcxbvuuiow70" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Dialouge UI/Emotes/Teemo premium emote animations sprite sheet-export.png" id="6_2obpo"]
+[ext_resource type="Texture2D" uid="uid://ba4jpn54mkx4b" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/buttons/Icon Buttons/Icon Buttons Spritesheet.png" id="10_ncgcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs04e"]
+atlas = ExtResource("1_fu6gy")
+region = Rect2(0, 0, 204, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvyuw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs04e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3ja"]
+bg_color = Color(0.90625, 0.808594, 0.648438, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgrwt"]
+bg_color = Color(0.5625, 0.382813, 0.363281, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq8ad"]
+atlas = ExtResource("6_2obpo")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfts1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq8ad")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pmnr"]
+atlas = ExtResource("4_2npfd")
+region = Rect2(0, 0, 290, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mnyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pmnr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nr6l"]
+atlas = ExtResource("10_ncgcn")
+region = Rect2(69, 132, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdrfn"]
+atlas = ExtResource("10_ncgcn")
+region = Rect2(101, 134, 22, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e734"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nr6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdrfn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_3cukc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(107, 118)
+sprite_frames = SubResource("SpriteFrames_wvyuw")
+centered = false
+
+[node name="GoldAmount" type="RichTextLabel" parent="."]
+modulate = Color(0.710938, 0.535156, 0.382813, 1)
+anchors_preset = -1
+anchor_right = 3.988
+anchor_bottom = 2.79
+offset_left = 189.0
+offset_top = 121.0
+offset_right = -907.16
+offset_bottom = -321.2
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/normal_font = ExtResource("5_4784h")
+theme_override_font_sizes/normal_font_size = 41
+text = "Gold: 5.55k"
+script = ExtResource("1_tw0lg")
+
+[node name="ExpGroup" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 4.009
+anchor_bottom = 2.751
+offset_left = 245.0
+offset_top = 122.0
+offset_right = -793.88
+offset_bottom = -329.18
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+script = ExtResource("2_m8d2e")
+
+[node name="ExpBar" type="ProgressBar" parent="ExpGroup"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = -40.0
+offset_right = 244.0
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_pu3ja")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xgrwt")
+max_value = 1.0
+show_percentage = false
+
+[node name="ExpAmount" type="RichTextLabel" parent="ExpGroup"]
+modulate = Color(0.707031, 0.53125, 0.382813, 1)
+layout_mode = 0
+offset_left = 156.0
+offset_top = -4.0
+offset_right = 244.0
+offset_bottom = 44.0
+theme_override_fonts/normal_font = ExtResource("5_4784h")
+theme_override_font_sizes/normal_font_size = 41
+text = "0/10"
+
+[node name="Level" type="RichTextLabel" parent="ExpGroup"]
+modulate = Color(0.710938, 0.535156, 0.382813, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -48.0
+offset_right = 148.0
+offset_bottom = 4.0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("5_4784h")
+theme_override_font_sizes/normal_font_size = 41
+text = "Level: 1"
+
+[node name="AvailablePerkPoints" type="RichTextLabel" parent="."]
+modulate = Color(0.710938, 0.535156, 0.382813, 1)
+offset_left = 112.0
+offset_top = 121.0
+offset_right = 388.0
+offset_bottom = 169.0
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/normal_font = ExtResource("5_4784h")
+theme_override_font_sizes/normal_font_size = 41
+text = "Perks Points: 9+"
+script = ExtResource("3_jr112")
+
+[node name="ToolTipGroup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.0
+offset_top = 110.0
+offset_right = 317.0
+offset_bottom = 138.0
+
+[node name="SpeakerSprite" type="AnimatedSprite2D" parent="ToolTipGroup"]
+visible = false
+position = Vector2(-26, -6)
+sprite_frames = SubResource("SpriteFrames_jfts1")
+centered = false
+
+[node name="TooltipBoxSprite" type="AnimatedSprite2D" parent="ToolTipGroup"]
+sprite_frames = SubResource("SpriteFrames_0mnyl")
+centered = false
+
+[node name="ToolTip" type="RichTextLabel" parent="ToolTipGroup"]
+modulate = Color(0.705882, 0.529412, 0.384314, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -26.0
+offset_right = 968.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/normal_font = ExtResource("5_4784h")
+theme_override_fonts/bold_font = ExtResource("5_4784h")
+theme_override_font_sizes/normal_font_size = 41
+theme_override_font_sizes/bold_font_size = 41
+bbcode_enabled = true
+text = "ToolTip: This is a bunch of filler text to show how this will look lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+script = ExtResource("4_p5ulb")
+
+[node name="ExpandCollapse" type="Control" parent="ToolTipGroup"]
+anchors_preset = 0
+offset_left = -24.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = 24.0
+
+[node name="ExpandCollapseSprite" type="AnimatedSprite2D" parent="ToolTipGroup/ExpandCollapse"]
+sprite_frames = SubResource("SpriteFrames_7e734")
+centered = false
+
+[node name="ExpandCollapseButton" type="Button" parent="ToolTipGroup/ExpandCollapse"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = 1.0
+offset_right = 21.0
+offset_bottom = 22.0
+
+[connection signal="button_down" from="ToolTipGroup/ExpandCollapse/ExpandCollapseButton" to="ToolTipGroup/ToolTip" method="_on_expand_collapse_button_button_down"]
+[connection signal="button_up" from="ToolTipGroup/ExpandCollapse/ExpandCollapseButton" to="ToolTipGroup/ToolTip" method="_on_expand_collapse_button_button_up"]
+[connection signal="pressed" from="ToolTipGroup/ExpandCollapse/ExpandCollapseButton" to="ToolTipGroup/ToolTip" method="_on_expand_collapse_button_pressed"]

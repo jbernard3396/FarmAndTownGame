@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dukmbfbtk3twc"]
+
+[ext_resource type="Script" path="res://Scripts/WaterTile.gd" id="1_cestb"]
+[ext_resource type="Texture2D" uid="uid://dc5683tllr6d1" path="res://Assets/sproutlands-premium/tilesets/Water.png" id="1_uht35"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amrj0"]
+atlas = ExtResource("1_uht35")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wybka"]
+atlas = ExtResource("1_uht35")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1wpe"]
+atlas = ExtResource("1_uht35")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji31l"]
+atlas = ExtResource("1_uht35")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2626"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amrj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wybka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1wpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji31l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterTile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cestb")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e2626")
+frame_progress = 0.177054
+speed_scale = 0.25
+centered = false

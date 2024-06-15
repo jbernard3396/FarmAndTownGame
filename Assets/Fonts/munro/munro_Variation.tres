@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://0idecfjj3a8h"]
+
+[ext_resource type="FontFile" uid="uid://ccxr3qdhilsj3" path="res://Assets/Fonts/munro/munro.ttf" id="1_ly5ov"]
+
+[resource]
+resource_local_to_scene = true
+base_font = ExtResource("1_ly5ov")
+spacing_top = 2
+spacing_bottom = -9

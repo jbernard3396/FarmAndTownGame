@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://clpotql11lmki"]
+
+[ext_resource type="PackedScene" uid="uid://nuijxwehkvbw" path="res://Scenes/FarmPlots.tscn" id="1_5ggqb"]
+[ext_resource type="Script" path="res://Scenes/Save_Service.gd" id="1_rpkb8"]
+[ext_resource type="PackedScene" uid="uid://cyxt172yns1gq" path="res://Scenes/ItemDisplayObject.tscn" id="5_edaor"]
+[ext_resource type="Script" path="res://Scripts/Debug.gd" id="7_8gg0t"]
+[ext_resource type="PackedScene" uid="uid://bih414iuf7wds" path="res://Scenes/BouncyCollectable.tscn" id="8_e3mwv"]
+[ext_resource type="PackedScene" uid="uid://bpjsfjudvbw0a" path="res://Scenes/CropStatsMenu.tscn" id="9_bhbwr"]
+[ext_resource type="Script" path="res://Scripts/clock.gd" id="9_h884v"]
+[ext_resource type="PackedScene" uid="uid://cpqvqyuyucjao" path="res://Scenes/HUD.tscn" id="9_hd85l"]
+[ext_resource type="PackedScene" uid="uid://cin0c4sfoidos" path="res://Scenes/Toolbar.tscn" id="9_raxtq"]
+[ext_resource type="PackedScene" uid="uid://bycsb7cmp6wq6" path="res://Scenes/LevelUpNotification.tscn" id="10_8ma6a"]
+[ext_resource type="PackedScene" uid="uid://dsrashcy34bjr" path="res://Scenes/achievement_notification.tscn" id="11_k8jlg"]
+[ext_resource type="PackedScene" uid="uid://cx6ykcn6xdvq6" path="res://Scenes/PerkSelectionMenuV2.tscn" id="12_aew47"]
+[ext_resource type="PackedScene" uid="uid://j1uj0knc7fm7" path="res://Scenes/achievementsPaginated.tscn" id="14_d711x"]
+[ext_resource type="PackedScene" uid="uid://c88su532u813o" path="res://Scenes/Achievement.tscn" id="15_sbjek"]
+
+[node name="Farm" type="Node2D"]
+script = ExtResource("1_rpkb8")
+
+[node name="Plots" parent="." instance=ExtResource("1_5ggqb")]
+
+[node name="HUD" parent="." instance=ExtResource("9_hd85l")]
+visible = false
+offset = Vector2(0, -10)
+transform = Transform2D(1, 0, 0, 1, 0, -10)
+
+[node name="Clock" type="Node" parent="."]
+script = ExtResource("9_h884v")
+
+[node name="CropStatsMenu" parent="." instance=ExtResource("9_bhbwr")]
+offset_left = 39.3
+offset_top = 7.35
+offset_right = 239.3
+offset_bottom = 107.35
+statObject = ExtResource("5_edaor")
+
+[node name="AchievementsPaginated" parent="." instance=ExtResource("14_d711x")]
+achievementScene = ExtResource("15_sbjek")
+
+[node name="LevelUpNotification" parent="." instance=ExtResource("10_8ma6a")]
+offset_left = 35.0
+offset_top = 5.0
+offset_right = 35.0
+offset_bottom = 5.0
+
+[node name="Toolbar" parent="." instance=ExtResource("9_raxtq")]
+offset_top = 130.0
+offset_right = 0.0
+offset_bottom = 130.0
+
+[node name="AchievementNotification" parent="." instance=ExtResource("11_k8jlg")]
+offset_left = 67.0
+offset_top = 16.0
+offset_right = 811.0
+offset_bottom = 376.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_right = -4.0
+scale = Vector2(0.25, 0.25)
+script = ExtResource("7_8gg0t")
+bounceScene = ExtResource("8_e3mwv")
+
+[node name="gold up" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 469.0
+offset_right = 309.0
+offset_bottom = 500.0
+text = "+1000 gold"
+
+[node name="xp up" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 469.0
+offset_right = 640.0
+offset_bottom = 500.0
+text = "+1000 xp"
+
+[node name="gold down" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 469.0
+offset_right = 448.0
+offset_bottom = 500.0
+text = "-1000 gold"
+
+[node name="ticks" type="Button" parent="Debug"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 676.0
+offset_top = 469.0
+offset_right = 805.0
+offset_bottom = 500.0
+text = "1000 ticks"
+
+[node name="PerkSelectionMenuV2" parent="." instance=ExtResource("12_aew47")]
+offset_left = 35.0
+offset_top = 5.0
+offset_right = 35.08
+offset_bottom = 5.0
+
+[connection signal="pressed" from="Debug/gold up" to="Debug" method="_on_gold_up_pressed"]
+[connection signal="pressed" from="Debug/xp up" to="Debug" method="_on_xp_up_pressed"]
+[connection signal="pressed" from="Debug/gold down" to="Debug" method="_on_gold_down_pressed"]
+[connection signal="pressed" from="Debug/ticks" to="Debug" method="_on_ticks_pressed"]

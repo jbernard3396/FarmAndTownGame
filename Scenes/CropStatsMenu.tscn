@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpjsfjudvbw0a"]
+
+[ext_resource type="Script" path="res://Scripts/CropStatsMenu.gd" id="1_uy0sb"]
+[ext_resource type="Texture2D" uid="uid://d3rfg6bidxg10" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementNotification.png" id="2_qx46e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iywpb"]
+atlas = ExtResource("2_qx46e")
+region = Rect2(250, 0, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2g2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iywpb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CropStatsMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 381.0
+offset_top = 136.0
+offset_right = 887.0
+offset_bottom = 355.0
+script = ExtResource("1_uy0sb")
+
+[node name="Panel" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x2g2n")
+centered = false

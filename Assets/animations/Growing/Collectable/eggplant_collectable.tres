@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://d0g82ws67jfhs"]
+
+[ext_resource type="Texture2D" uid="uid://cj7kejp8ap47e" path="res://Assets/sproutlands-premium/objects/Items/FarmingPlantsItems.png" id="1_reh7o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2335b"]
+atlas = ExtResource("1_reh7o")
+region = Rect2(16, 80, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2335b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

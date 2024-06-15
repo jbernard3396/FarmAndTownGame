@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://00ln5xp5e4v8"]
+
+[ext_resource type="Script" path="res://Scripts/AchievementStatsMenu.gd" id="1_u1hdd"]
+
+[node name="AchievementMenu" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+columns = 2
+script = ExtResource("1_u1hdd")

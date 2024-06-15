@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://44uvt3mgot37"]
+
+[ext_resource type="Script" path="res://Scripts/CropToolbar.gd" id="1_xp4c0"]
+[ext_resource type="PackedScene" uid="uid://b71ecahqtlgwl" path="res://Scenes/MenuCrop.tscn" id="2_sp4k5"]
+[ext_resource type="Texture2D" uid="uid://m4rt184nluge" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/toolbar-2-withTabs.png" id="3_3u6ln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff786"]
+atlas = ExtResource("3_3u6ln")
+region = Rect2(0, 50, 320, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7kxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff786")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CropToolbar" type="Panel"]
+offset_top = 520.0
+offset_right = 320.0
+offset_bottom = 570.0
+size_flags_vertical = 8
+script = ExtResource("1_xp4c0")
+CropScene = ExtResource("2_sp4k5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q7kxu")
+centered = false

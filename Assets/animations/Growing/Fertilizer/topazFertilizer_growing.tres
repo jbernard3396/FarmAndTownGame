@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://do633a5f2mmxs"]
+
+[ext_resource type="Texture2D" uid="uid://b452mqb15yjbp" path="res://Assets/sproutlands-premium/objects/signs.png" id="1_ceh0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li0nh"]
+atlas = ExtResource("1_ceh0t")
+region = Rect2(64, 32, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li0nh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

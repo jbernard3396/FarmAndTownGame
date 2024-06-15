@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://h6kj5d8c7445"]
+
+[ext_resource type="Script" path="res://Scripts/MenuButton.gd" id="1_6jnbn"]
+[ext_resource type="Script" path="res://Scripts/ShowCrops.gd" id="2_sa1xb"]
+[ext_resource type="Texture2D" uid="uid://ba4jpn54mkx4b" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/buttons/Icon Buttons/Icon Buttons Spritesheet.png" id="3_fwj1t"]
+[ext_resource type="Texture2D" uid="uid://coaohqnod3efv" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/toolbar-2-withTabs (1).png" id="4_ouqbt"]
+[ext_resource type="Texture2D" uid="uid://cj7kejp8ap47e" path="res://Assets/sproutlands-premium/objects/Items/FarmingPlantsItems.png" id="5_6u3j1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkoen"]
+atlas = ExtResource("3_fwj1t")
+region = Rect2(0, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ooa"]
+atlas = ExtResource("3_fwj1t")
+region = Rect2(32, 384, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20u0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkoen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ooa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x200"]
+atlas = ExtResource("4_ouqbt")
+region = Rect2(0, 150, 23, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbm7w"]
+atlas = ExtResource("4_ouqbt")
+region = Rect2(0, 100, 23, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhdov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x200")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbm7w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41y3a"]
+atlas = ExtResource("5_6u3j1")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eineb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41y3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MenuButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 21.0
+offset_bottom = 20.0
+script = ExtResource("1_6jnbn")
+buttonAction = ExtResource("2_sa1xb")
+buttonSprites = SubResource("SpriteFrames_20u0t")
+
+[node name="MenuButtonTab" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hhdov")
+centered = false
+
+[node name="MenuButtonIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 4)
+sprite_frames = SubResource("SpriteFrames_eineb")
+centered = false
+
+[node name="MenuButtonButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_right = 22.0
+offset_bottom = 20.0
+
+[connection signal="pressed" from="MenuButtonButton" to="." method="_on_menu_button_button_pressed"]

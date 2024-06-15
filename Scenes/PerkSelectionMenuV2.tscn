@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://cx6ykcn6xdvq6"]
+
+[ext_resource type="Script" path="res://Scripts/PerkThings/PerkSelectionMenu.gd" id="1_3osq1"]
+[ext_resource type="Texture2D" uid="uid://bwxegivs3x3ps" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementsWPages.png" id="1_j7p2u"]
+[ext_resource type="PackedScene" uid="uid://d0cvrgahjpbks" path="res://Scenes/Button.tscn" id="2_2g7wt"]
+[ext_resource type="PackedScene" uid="uid://cyxt172yns1gq" path="res://Scenes/ItemDisplayObject.tscn" id="2_ahnuh"]
+[ext_resource type="Texture2D" uid="uid://bwi5x7c6pl6rl" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/Button (2).png" id="3_3lnxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkoya"]
+atlas = ExtResource("1_j7p2u")
+region = Rect2(250, 0, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg5l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkoya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mk7m"]
+atlas = ExtResource("3_3lnxi")
+region = Rect2(0, 0, 90, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nox4q"]
+atlas = ExtResource("3_3lnxi")
+region = Rect2(0, 20, 90, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndepr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mk7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nox4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PerkSelectionMenuV2" type="Control"]
+layout_mode = 3
+anchor_right = 0.781
+anchor_bottom = 0.667
+offset_right = 0.0799866
+offset_bottom = -0.0600128
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3osq1")
+perkObject = ExtResource("2_ahnuh")
+
+[node name="Panel" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rg5l6")
+centered = false
+
+[node name="Button" parent="." instance=ExtResource("2_2g7wt")]
+offset_left = 80.0
+offset_right = 100.0
+spriteImages = SubResource("SpriteFrames_ndepr")
+pixelsToLowerOnPress = 0
+buttonAreaWidth = 90
+buttonAreaHeight = 20
+text = "Confirm"
+pixelsToLowerTextOnPress = 3
+
+[connection signal="pressed" from="Button" to="." method="_on_confirmation_button_pressed"]

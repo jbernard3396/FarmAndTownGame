@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bih414iuf7wds"]
+
+[ext_resource type="Script" path="res://Scripts/BouncyCollectable.gd" id="1_pui3b"]
+[ext_resource type="Texture2D" uid="uid://cj7kejp8ap47e" path="res://Assets/sproutlands-premium/objects/Items/FarmingPlantsItems.png" id="2_c4efw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn3lb"]
+atlas = ExtResource("2_c4efw")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwdqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn3lb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4nrdi"]
+
+[node name="BouncyCollectable" type="Area2D"]
+script = ExtResource("1_pui3b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kwdqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4nrdi")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

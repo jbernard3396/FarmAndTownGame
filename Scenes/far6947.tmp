@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://clpotql11lmki"]
+
+[ext_resource type="Texture2D" uid="uid://cgxkl6ksh32q5" path="res://Assets/sproutlands-premium/objects/Items/All items.png" id="1_tkj05"]
+[ext_resource type="PackedScene" uid="uid://dmj0miaw1fx" path="res://Scenes/plot_scene.tscn" id="2_cy3a5"]
+[ext_resource type="Script" path="res://Scripts/Corn.gd" id="3_imh24"]
+[ext_resource type="SpriteFrames" uid="uid://c4yroq3dbiww3" path="res://Assets/animations/Corn_growing.tres" id="4_jtqer"]
+[ext_resource type="Script" path="res://Scripts/Carrot.gd" id="5_peoc2"]
+[ext_resource type="Script" path="res://Scripts/Plots.gd" id="6_7y2be"]
+[ext_resource type="SpriteFrames" uid="uid://cmea2rovlabo4" path="res://Assets/animations/Carrot_growing.tres" id="6_ba76u"]
+[ext_resource type="Script" path="res://Scripts/clock.gd" id="9_h884v"]
+[ext_resource type="PackedScene" uid="uid://cpqvqyuyucjao" path="res://Scenes/HUD.tscn" id="9_hd85l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajiq5"]
+bg_color = Color(0.796078, 0.537255, 0.262745, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixgdx"]
+atlas = ExtResource("1_tkj05")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0x4fg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixgdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghlvl"]
+atlas = ExtResource("1_tkj05")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sm5hr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghlvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttobw"]
+bg_color = Color(0.623529, 0.627451, 0.184314, 1)
+
+[node name="Farm" type="Node2D"]
+
+[node name="Crops" type="Panel" parent="."]
+offset_top = 520.0
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ajiq5")
+
+[node name="Corn" type="AnimatedSprite2D" parent="Crops"]
+position = Vector2(300, 100)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_0x4fg")
+script = ExtResource("3_imh24")
+crop_sprites = ExtResource("4_jtqer")
+
+[node name="Button" type="Button" parent="Crops/Corn"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ColorRect" type="ColorRect" parent="Crops/Corn"]
+modulate = Color(0.341176, 0.341176, 0.341176, 0.682353)
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Carrot" type="AnimatedSprite2D" parent="Crops"]
+position = Vector2(100, 100)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_sm5hr")
+script = ExtResource("5_peoc2")
+crop_sprites = ExtResource("6_ba76u")
+
+[node name="Button" type="Button" parent="Crops/Carrot"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 9.0
+offset_bottom = 8.0
+
+[node name="Plots" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 500.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttobw")
+script = ExtResource("6_7y2be")
+plotScene = ExtResource("2_cy3a5")
+
+[node name="Button" type="Button" parent="Plots"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 459.0
+offset_right = 65.0
+offset_bottom = 490.0
+text = "+ Plot"
+
+[node name="HUD" parent="." instance=ExtResource("9_hd85l")]
+offset = Vector2(0, -220)
+transform = Transform2D(1, 0, 0, 1, 0, -220)
+
+[node name="Clock" type="Node" parent="."]
+script = ExtResource("9_h884v")
+
+[connection signal="pressed" from="Crops/Corn/Button" to="Crops/Corn" method="_on_button_pressed"]
+[connection signal="pressed" from="Crops/Carrot/Button" to="Crops/Carrot" method="_on_button_pressed"]
+[connection signal="pressed" from="Plots/Button" to="Plots" method="_on_button_pressed"]

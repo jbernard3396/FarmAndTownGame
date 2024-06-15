@@ -1,0 +1,62 @@
+{
+	"extraGold": {
+		"displayName": "Old Money",
+		"description": "crops grant 5% more gold",
+		"context": "crop",
+		"function": "multiplyGold",
+		"requirements":
+			[{
+				"req":"levelRequirement",
+				"arguments":[4]
+			}]
+	},
+	"extraExp": {
+		"displayName": "Fast Learner",
+		"description": "crops grant 5% more experience",
+		"context": "crop",
+		"function": "multiplyExp",
+		"requirements": []
+	},
+	"extraCrops": {
+		"displayName": "Good worms",
+		"description": "2% more crops from harvest",
+		"context": "crop",
+		"function": "multiplyCrops",
+		"requirements": []
+	},
+	"reducedTime": {
+		"displayName": "Better Chemicals",
+		"description": "crops have 5% faster harvest time",
+		"context": "crop",
+		"function": "multiplyGrowTime",
+		"requirements": []
+	},
+	"shinyCrops": {
+		"displayName": "Shiny Crops",
+		"description": "crops have a 1% chance to be shiny, granting 10x gold and xp",
+		"context": "crop",
+		"function": "shiny",
+		"requirements": []
+	},
+	"instantGold": {
+		"displayName": "Find a Treasure Chest",
+		"description": "instantly gain 10 gold per player level",
+		"context": "instant",
+		"function": "gainGold",
+		"requirements": []
+	},
+	"instantXp": {
+		"displayName": "Find an Old Tome",
+		"description": "instantly gain 2 xp per player level",
+		"context": "instant",
+		"function": "gainXp",
+		"requirements": []
+	},
+	"instantPlot": {
+		"displayName": "Helpful Mole",
+		"description": "instantly gain a single plot",
+		"context": "instant",
+		"function": "gainPlot",
+		"requirements": []
+	}
+}

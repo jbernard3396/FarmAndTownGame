@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dj26a0dryxnpd"]
+
+[ext_resource type="Texture2D" uid="uid://djtb4qjybvi7n" path="res://Assets/sproutlands-premium/objects/Mushrooms, Flowers, Stones.png" id="1_rafn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7cto"]
+atlas = ExtResource("1_rafn3")
+region = Rect2(0, 48, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7cto")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

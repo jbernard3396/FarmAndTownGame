@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://dsrashcy34bjr"]
+
+[ext_resource type="Script" path="res://Scripts/AchievementNotification.gd" id="1_s14mc"]
+[ext_resource type="PackedScene" uid="uid://c88su532u813o" path="res://Scenes/Achievement.tscn" id="2_b2h11"]
+[ext_resource type="Texture2D" uid="uid://bwxegivs3x3ps" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementsWPages.png" id="2_bnfvc"]
+[ext_resource type="FontVariation" uid="uid://0idecfjj3a8h" path="res://Assets/Fonts/munro/munro_Variation.tres" id="2_uc15n"]
+[ext_resource type="Texture2D" uid="uid://d3rfg6bidxg10" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementNotification.png" id="3_jeec3"]
+[ext_resource type="PackedScene" uid="uid://d0cvrgahjpbks" path="res://Scenes/Button.tscn" id="6_f4tkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bwsj"]
+atlas = ExtResource("3_jeec3")
+region = Rect2(0, 0, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qd5vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bwsj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dfi1"]
+atlas = ExtResource("2_bnfvc")
+region = Rect2(500, 0, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6jrd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dfi1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbpgd"]
+atlas = ExtResource("3_jeec3")
+region = Rect2(0, 360, 125, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g36w0"]
+atlas = ExtResource("3_jeec3")
+region = Rect2(250, 360, 125, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tvaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbpgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g36w0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AchievementNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 744.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_s14mc")
+achievementScene = ExtResource("2_b2h11")
+
+[node name="Panel" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qd5vb")
+centered = false
+
+[node name="Achievement" type="AnimatedSprite2D" parent="."]
+position = Vector2(134, 144)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_q6jrd")
+centered = false
+
+[node name="Congratulations" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 724.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.662745, 0.47451, 0.34902, 1)
+theme_override_fonts/normal_font = ExtResource("2_uc15n")
+theme_override_font_sizes/normal_font_size = 41
+text = "Congratulations!  You got a new achievement!"
+
+[node name="CloseButton" parent="." instance=ExtResource("6_f4tkk")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.168
+anchor_right = -0.168
+offset_left = 456.992
+offset_top = 252.0
+offset_right = 476.992
+offset_bottom = 274.0
+scale = Vector2(4, 4)
+spriteImages = SubResource("SpriteFrames_8tvaq")
+buttonAreaWidth = 24
+buttonAreaHeight = 24
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

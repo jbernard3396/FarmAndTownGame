@@ -1,0 +1,28 @@
+{ "topazFertilizer": {
+	"name": "topazFertilizer",
+	"effectDescription": "half the growing time but reduce gold gained by 75%",
+	"id": 1,
+	"order": 1,
+	"requiredLevel": 2,
+	"cost": 50,
+	"function": "topazFertilizer"
+  },
+"emeraldFertilizer": {
+	"name": "emeraldFertilizer",
+	"effectDescription": "half the growing time but reduce XP gained by 75%",
+	"id": 2,
+	"order": 2,
+	"requiredLevel": 5,
+	"cost": 50,
+	"function": "emeraldFertilizer"
+  },
+"rubyFertilizer": {
+	"name": "rubyFertilizer",
+	"effectDescription": "double the growing time but increase gold and XP gained by 300%",
+	"id": 3,
+	"order": 3,
+	"requiredLevel": 7,
+	"cost": 50,
+	"function": "rubyFertilizer"
+  },
+}

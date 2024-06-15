@@ -1,0 +1,19 @@
+extends Node
+
+signal ticked
+signal harvested(crop)
+signal expChanged
+signal goldChanged
+signal perksChanged
+signal leveledUp
+signal cropChanged(crop)
+signal fertilizerChanged(fertilizer)
+signal loaded(crop)
+signal opened(page)
+signal itemSelected(item)
+signal nothingSelected
+signal toolbarOpened(toolBarName)
+signal achieved(achievement)
+signal allSingletonsLoaded
+signal gainNewPlot
+signal gameLoaded

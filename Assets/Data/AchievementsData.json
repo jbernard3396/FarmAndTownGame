@@ -1,0 +1,13 @@
+{
+  "harvest5Carrots": {
+	"name": "harvest5Carrots",
+	"displayName": "Harvest 5 carrot",
+	"description":"Harvest 5 carrot",
+	"id": 1,
+	"requirements":
+			[{
+				"req":"harvest",
+				"arguments":[5, "carrot"]
+			}]
+  },
+}

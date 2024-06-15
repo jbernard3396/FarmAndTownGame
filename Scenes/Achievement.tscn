@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c88su532u813o"]
+
+[ext_resource type="Texture2D" uid="uid://bwxegivs3x3ps" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementsWPages.png" id="1_31ahi"]
+[ext_resource type="Script" path="res://Scripts/Achievement.gd" id="1_oy326"]
+[ext_resource type="FontVariation" uid="uid://0idecfjj3a8h" path="res://Assets/Fonts/munro/munro_Variation.tres" id="2_c34t4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysn1s"]
+atlas = ExtResource("1_31ahi")
+region = Rect2(500, 120, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkgj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysn1s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga04u"]
+atlas = ExtResource("1_31ahi")
+region = Rect2(250, 120, 250, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpia8"]
+atlas = ExtResource("1_31ahi")
+region = Rect2(0, 120, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3fln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga04u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpia8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Achievement" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oy326")
+
+[node name="Base" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nkgj7")
+centered = false
+
+[node name="Check" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j3fln")
+centered = false
+offset = Vector2(4, 1)
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 3.0
+offset_right = 403.0
+offset_bottom = 51.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0.662745, 0.47451, 0.34902, 1)
+theme_override_fonts/normal_font = ExtResource("2_c34t4")
+theme_override_fonts/bold_font = ExtResource("2_c34t4")
+theme_override_font_sizes/normal_font_size = 41
+theme_override_font_sizes/bold_font_size = 41
+text = "Harvest 1 carrot"

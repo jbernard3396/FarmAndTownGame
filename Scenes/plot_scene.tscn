@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://dmj0miaw1fx"]
+
+[ext_resource type="Script" path="res://Scenes/plot_scene.gd" id="1_56trx"]
+[ext_resource type="Texture2D" uid="uid://bmm1p7eqapo5o" path="res://Assets/sproutlands-premium/tilesets/TilledDirt.png" id="1_as1x0"]
+[ext_resource type="Script" path="res://Scripts/Plot.gd" id="2_52chj"]
+[ext_resource type="Texture2D" uid="uid://rm5wdlvvs8j3" path="res://Assets/sproutlands-premium/objects/FarmingPlants.png" id="2_nfclp"]
+[ext_resource type="PackedScene" uid="uid://bih414iuf7wds" path="res://Scenes/BouncyCollectable.tscn" id="3_tqtcm"]
+[ext_resource type="Script" path="res://Scripts/RipenBar.gd" id="5_8g3dm"]
+[ext_resource type="SpriteFrames" uid="uid://do633a5f2mmxs" path="res://Assets/animations/Growing/Fertilizer/topazFertilizer_growing.tres" id="5_wi5fi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxkd4"]
+atlas = ExtResource("1_as1x0")
+region = Rect2(26, 58, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26e16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxkd4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_3k0xw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hche"]
+atlas = ExtResource("2_nfclp")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8t4l"]
+atlas = ExtResource("2_nfclp")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j1dj"]
+atlas = ExtResource("2_nfclp")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_218ma"]
+atlas = ExtResource("2_nfclp")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5us66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hche")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8t4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j1dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_218ma")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6tq1"]
+bg_color = Color(0.678431, 0.396078, 0.360784, 1)
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5207"]
+bg_color = Color(0.46875, 0.628906, 0.34375, 1)
+
+[node name="PlotScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 28.0
+script = ExtResource("1_56trx")
+
+[node name="Plot" type="AnimatedSprite2D" parent="." groups=["Crop"]]
+sprite_frames = SubResource("SpriteFrames_26e16")
+centered = false
+script = ExtResource("2_52chj")
+bouncyCollectable = ExtResource("3_tqtcm")
+
+[node name="Button" type="Button" parent="Plot"]
+modulate = Color(0, 0, 0, 0)
+offset_right = 28.0
+offset_bottom = 28.0
+theme = SubResource("Theme_3k0xw")
+
+[node name="PlantedFertilizer" type="AnimatedSprite2D" parent="Plot"]
+visible = false
+position = Vector2(6, 5)
+sprite_frames = ExtResource("5_wi5fi")
+centered = false
+
+[node name="PlantedCrop" type="AnimatedSprite2D" parent="Plot"]
+visible = false
+position = Vector2(6, 4)
+sprite_frames = SubResource("SpriteFrames_5us66")
+frame = 3
+frame_progress = 0.856981
+centered = false
+offset = Vector2(0, -2)
+
+[node name="RipenBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 2
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 63.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/background = SubResource("StyleBoxFlat_r6tq1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o5207")
+max_value = 1.0
+show_percentage = false
+script = ExtResource("5_8g3dm")
+
+[connection signal="changeProgress" from="Plot" to="RipenBar" method="_on_plot_change_progress"]
+[connection signal="pressed" from="Plot/Button" to="Plot" method="_on_button_pressed"]

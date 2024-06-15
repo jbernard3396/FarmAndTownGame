@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bycsb7cmp6wq6"]
+
+[ext_resource type="Script" path="res://Scripts/LevelUpNotification.gd" id="1_5r61j"]
+[ext_resource type="PackedScene" uid="uid://cyxt172yns1gq" path="res://Scenes/ItemDisplayObject.tscn" id="2_a872q"]
+[ext_resource type="SpriteFrames" uid="uid://bds6knj13w6s1" path="res://Assets/animations/Menu/Crops/corn_menu.tres" id="3_tmibf"]
+[ext_resource type="Texture2D" uid="uid://bwxegivs3x3ps" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementsWPages.png" id="4_rtmlt"]
+[ext_resource type="PackedScene" uid="uid://d0cvrgahjpbks" path="res://Scenes/Button.tscn" id="5_aw4ft"]
+[ext_resource type="FontFile" uid="uid://ccxr3qdhilsj3" path="res://Assets/Fonts/munro/munro.ttf" id="5_vd1g5"]
+[ext_resource type="Texture2D" uid="uid://bwi5x7c6pl6rl" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/Button (2).png" id="7_wy7ai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av3fo"]
+atlas = ExtResource("4_rtmlt")
+region = Rect2(250, 0, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phacj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av3fo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h4ud"]
+atlas = ExtResource("7_wy7ai")
+region = Rect2(0, 0, 90, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kahx2"]
+atlas = ExtResource("7_wy7ai")
+region = Rect2(0, 20, 90, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhp5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h4ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kahx2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LevelUpNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -70.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5r61j")
+unlockScene = ExtResource("2_a872q")
+cornSprite = ExtResource("3_tmibf")
+
+[node name="Panel" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_phacj")
+centered = false
+
+[node name="Congratulations" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 4.0
+offset_right = 724.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0.662745, 0.47451, 0.34902, 1)
+theme_override_fonts/normal_font = ExtResource("5_vd1g5")
+theme_override_font_sizes/normal_font_size = 41
+text = "Congratulations!  you hit level 2!"
+
+[node name="ChoosePerkGroup" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" parent="ChoosePerkGroup" instance=ExtResource("5_aw4ft")]
+offset_left = 80.0
+offset_top = 94.0
+offset_right = 100.0
+offset_bottom = 116.0
+spriteImages = SubResource("SpriteFrames_nhp5c")
+pixelsToLowerOnPress = 0
+buttonAreaWidth = 90
+buttonAreaHeight = 20
+text = "Choose Perk"
+pixelsToLowerTextOnPress = 3
+
+[connection signal="pressed" from="ChoosePerkGroup/Button" to="." method="_on_button_pressed"]

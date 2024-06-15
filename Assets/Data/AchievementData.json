@@ -1,0 +1,14 @@
+{
+  "harvestCrops": {
+	"name": "harvestCrops",
+	"displayName": "Harvest Crops",
+	"discipline": "Farming",
+	"description":"Harvest 10 crops of any kind",
+	"id": 1,
+	"requirements":
+			[{
+				"req":"harvest",
+				"arguments":[10, null]
+			}]
+  },
+}

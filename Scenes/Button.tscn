@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0cvrgahjpbks"]
+
+[ext_resource type="Script" path="res://Scripts/button_Questionmark.gd" id="1_ehf2i"]
+[ext_resource type="Texture2D" uid="uid://bwxegivs3x3ps" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/AchievementsWPages.png" id="2_5i0f0"]
+[ext_resource type="PackedScene" uid="uid://c40um0xlc4d75" path="res://Scenes/TextObject.tscn" id="3_fylk8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u1my"]
+atlas = ExtResource("2_5i0f0")
+region = Rect2(0, 240, 250, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtuvo"]
+atlas = ExtResource("2_5i0f0")
+region = Rect2(250, 240, 250, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r5wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u1my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtuvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Button" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 93.0
+offset_right = 153.0
+offset_bottom = 115.0
+script = ExtResource("1_ehf2i")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4r5wp")
+centered = false
+
+[node name="ButtonText" parent="." instance=ExtResource("3_fylk8")]
+layout_mode = 0
+offset_top = 3.0
+offset_bottom = 91.0
+bbcode_enabled = true
+text = ""
+
+[node name="ButtonArea" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 22.0
+
+[connection signal="button_down" from="ButtonArea" to="." method="_on_button_area_button_down"]
+[connection signal="button_up" from="ButtonArea" to="." method="_on_button_area_button_up"]
+[connection signal="pressed" from="ButtonArea" to="." method="_on_button_area_pressed"]
