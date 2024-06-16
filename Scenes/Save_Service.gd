@@ -32,7 +32,7 @@ func loadGame():
 	load_crop_game_state(save_game)
 	clock.passTime(timeToTick);
 	EventBus.emit_signal("gameLoaded")
-	print('new vcs test 2');
+	print('new vcs test 2 !');
 	
 func load_meta_game_state(save_game):
 	# when there are other skills, this needs to be expanded
