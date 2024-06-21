@@ -138,5 +138,5 @@ func load_crop(data):
 		return
 
 	for farmPlot in farmPlots:
-		if farmPlot.getId() == data.id:
+		if data.cropIsPlanted == true && farmPlot.getId() == data.id:
 			farmPlot.load_data(data)

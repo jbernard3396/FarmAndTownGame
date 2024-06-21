@@ -7,5 +7,6 @@ farm and town game bug tracker
 6. sometimes perkscreen appears on load and won't go away - DONE
 7. figure out if crop_toolbar - load data is unused - DONE
 8. gold and level don't fetch there values on load - DONE
-9. some crops frozen on load 
+9. some crops frozen on load - DONE
+10. sometimes hud maybe gets out of whack on opening perk menu?
 
