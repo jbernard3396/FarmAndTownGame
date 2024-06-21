@@ -17,8 +17,9 @@ func update_exp():
 	update_level()
 
 func update_exp_bar():
-	expBarGUI.value = PlayerContext.currentExp
 	expBarGUI.max_value = PlayerContext.expToNextLevel
+	expBarGUI.value = PlayerContext.currentExp
+
 
 func update_exp_amount():
 	expAmountGUI.text = '{currentExp}/{expToNextLevel}'.format({'currentExp':PlayerContext.currentExp, 'expToNextLevel':PlayerContext.expToNextLevel})
