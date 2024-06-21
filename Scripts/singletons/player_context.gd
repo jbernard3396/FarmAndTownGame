@@ -20,6 +20,7 @@ func gain_exp(expGained):
 	EventBus.emit_signal("expChanged")
 		
 func level_up():
+	print('leveling up')
 	currentExp -= expToNextLevel
 	currentLevel += 1
 	currentPerkPoints += 1
@@ -56,7 +57,8 @@ func load_data(save_dict):
 	var gold = save_dict['gold']
 	gain_gold(gold)
 	currentLevel = save_dict['level']
+	expToNextLevel = save_dict['expToNextLevel']
 	var ex_p = save_dict['exp']
 	gain_exp(ex_p)
 	currentPerkPoints = save_dict['currentPerkPoints']
-	expToNextLevel = save_dict['expToNextLevel']
+	

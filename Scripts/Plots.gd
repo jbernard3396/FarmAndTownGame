@@ -146,8 +146,5 @@ func load_crop(data):
 		return
 
 	for farmPlot in farmPlots:
-		print('farm plot id')
-		print(farmPlot.getId())
 		if farmPlot.getId() == data.id:
-			print('matching ids')
 			farmPlot.load_data(data)

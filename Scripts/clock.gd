@@ -10,7 +10,6 @@ func _process(delta):
 func passTime(delta):
 	timeSinceLastTick += delta
 	while(timeSinceLastTick > tickLength):
-		print('ticking');
 		timeSinceLastTick -= tickLength
 		EventBus.emit_signal("ticked")
 
