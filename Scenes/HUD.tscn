@@ -1,25 +1,24 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpqvqyuyucjao"]
+[gd_scene load_steps=21 format=3 uid="uid://cpqvqyuyucjao"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_3cukc"]
-[ext_resource type="Texture2D" uid="uid://btkiv0xq1vt7p" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/PerkGoldAndLevelFarmHud.png" id="1_fu6gy"]
 [ext_resource type="Script" path="res://Scripts/GoldAmount.gd" id="1_tw0lg"]
+[ext_resource type="Texture2D" uid="uid://b76ed7pa2sau3" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/GoldAndLevelFarmHUD.png" id="2_fjp7s"]
 [ext_resource type="Script" path="res://Scripts/ExpGroup.gd" id="2_m8d2e"]
-[ext_resource type="Script" path="res://Scripts/PerkThings/AvailablePerkPoints.gd" id="3_jr112"]
 [ext_resource type="Texture2D" uid="uid://beofccwgr3uru" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/dialog box big (1).png" id="4_2npfd"]
 [ext_resource type="Script" path="res://Scripts/ToolTip.gd" id="4_p5ulb"]
 [ext_resource type="FontVariation" uid="uid://0idecfjj3a8h" path="res://Assets/Fonts/munro/munro_Variation.tres" id="5_4784h"]
 [ext_resource type="Texture2D" uid="uid://ckcxbvuuiow70" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Dialouge UI/Emotes/Teemo premium emote animations sprite sheet-export.png" id="6_2obpo"]
 [ext_resource type="Texture2D" uid="uid://ba4jpn54mkx4b" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/buttons/Icon Buttons/Icon Buttons Spritesheet.png" id="10_ncgcn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rs04e"]
-atlas = ExtResource("1_fu6gy")
-region = Rect2(0, 0, 204, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcs6g"]
+atlas = ExtResource("2_fjp7s")
+region = Rect2(0, 0, 127, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvyuw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rs04e")
+"texture": SubResource("AtlasTexture_vcs6g")
 }],
 "loop": true,
 "name": &"default",
@@ -88,7 +87,7 @@ animations = [{
 script = ExtResource("1_3cukc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(107, 118)
+position = Vector2(184, 118)
 sprite_frames = SubResource("SpriteFrames_wvyuw")
 centered = false
 
@@ -160,18 +159,6 @@ grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("5_4784h")
 theme_override_font_sizes/normal_font_size = 41
 text = "Level: 1"
-
-[node name="AvailablePerkPoints" type="RichTextLabel" parent="."]
-modulate = Color(0.710938, 0.535156, 0.382813, 1)
-offset_left = 112.0
-offset_top = 121.0
-offset_right = 388.0
-offset_bottom = 169.0
-scale = Vector2(0.25, 0.25)
-theme_override_fonts/normal_font = ExtResource("5_4784h")
-theme_override_font_sizes/normal_font_size = 41
-text = "Perks Points: 9+"
-script = ExtResource("3_jr112")
 
 [node name="ToolTipGroup" type="Control" parent="."]
 layout_mode = 3

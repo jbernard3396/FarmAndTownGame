@@ -36,9 +36,11 @@ offset_bottom = 107.35
 statObject = ExtResource("5_edaor")
 
 [node name="AchievementsPaginated" parent="." instance=ExtResource("14_d711x")]
+visible = false
 achievementScene = ExtResource("15_sbjek")
 
 [node name="LevelUpNotification" parent="." instance=ExtResource("10_8ma6a")]
+visible = false
 offset_left = 35.0
 offset_top = 5.0
 offset_right = 35.0
@@ -50,6 +52,7 @@ offset_right = 0.0
 offset_bottom = 130.0
 
 [node name="AchievementNotification" parent="." instance=ExtResource("11_k8jlg")]
+visible = false
 offset_left = 67.0
 offset_top = 16.0
 offset_right = 811.0
@@ -58,6 +61,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Debug" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -4.0
@@ -100,6 +104,7 @@ offset_bottom = 500.0
 text = "1000 ticks"
 
 [node name="PerkSelectionMenuV2" parent="." instance=ExtResource("12_aew47")]
+visible = false
 offset_left = 35.0
 offset_top = 5.0
 offset_right = 35.08
