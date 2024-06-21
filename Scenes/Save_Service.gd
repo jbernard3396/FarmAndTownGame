@@ -3,6 +3,8 @@ extends Node2D
 var farmPlots:Panel
 var clock:Node
 var timeToTick:float
+var timeSinceLastSave:float
+var timeToAutoSave:int = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	farmPlots = $'Plots'
@@ -13,7 +15,10 @@ func _ready():
 	print('finished loading!')
 
 # when save is input perform save
-func _process(_delta):
+func _process(delta):
+	timeSinceLastSave += delta
+	if timeSinceLastSave >= timeToAutoSave:
+		save()
 	if Input.is_action_just_pressed("Save"):
 		save()
 		
@@ -99,6 +104,7 @@ func save():
 	#Save crop game state
 	save_crop_game_state(save_game)
 	print("save complete!")
+	timeSinceLastSave = 0
 	
 func save_meta_game_state(save_game):
 	var skillType = JSON.stringify({

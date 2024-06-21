@@ -1,4 +1,4 @@
-farm and town game bug tracker
+farm and town game bug and feature tracker
 1. perk menu has wierd back sprite - DONE
 2. fertilizers don't load proper - DONE
 3. tool tip down at the bottom needs new ui - DONE
@@ -11,4 +11,6 @@ farm and town game bug tracker
 10. sometimes hud maybe gets out of whack on opening perk menu? - DONE
 11. text doesn't move with buttons on perk screen - DONE
 12. tooltip doesn't update when closed - DONE
+13. crop tool tips unreadable
+14. autosave - DONE
 

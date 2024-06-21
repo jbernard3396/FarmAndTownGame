@@ -77,9 +77,6 @@ func load_data(data):
 	cropsPerHarvest = data.cropsPerHarvest
 	numHarvests = data.numHarvests
 	harvestSoFar = data.harvestSoFar
-#	print(data.collectableSprites)
-#	print(JSON.parse_string(data.collectableSprites))
-#	print(bytes_to_var(JSON.parse_string(data.collectableSprites)))
 	collectableSprites = bytes_to_var_with_objects(JSON.parse_string(data.collectableSprites))
 	sprites = bytes_to_var_with_objects(JSON.parse_string(data.sprites))
 	
