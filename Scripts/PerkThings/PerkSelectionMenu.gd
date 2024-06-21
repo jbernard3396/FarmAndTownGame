@@ -5,14 +5,15 @@ extends Control
 var panelName = "perksSelectionMenu"
 var items = []
 var perkObjects = []
-var numPerksToPopulate = 2
+var numPerksToPopulate = 3
 var selectedPerkIndex: int = -1
 var type:String = 'perk'
 
 var rows:int = 3
 var columns:int = 2
 var rowStart:int = 5
-var colStart:int = 5
+#todo: this should be 5, but that causes an odd visual bug
+var colStart:int = 6
 var rowThickness:int = 22
 var colThickness:int = 121
 var curCol:int = 1
@@ -129,6 +130,7 @@ func deselectPerk():
 	if(selectedPerkIndex == null or selectedPerkIndex == -1):
 		return
 	var perkToDeselect = perkObjects[selectedPerkIndex]
+	print(perkToDeselect)
 	perkToDeselect.setUnselected()
 	
 func setSelectedPerk():

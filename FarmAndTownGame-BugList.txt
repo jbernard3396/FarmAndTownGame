@@ -1,5 +1,5 @@
 farm and town game bug tracker
-1. perk menu has wierd back sprite
+1. perk menu has wierd back sprite - DONE
 2. fertilizers don't load proper - DONE
 3. tool tip down at the bottom needs new ui - DONE
 4. can't click plot because tool tip blocks - DONE
@@ -9,4 +9,5 @@ farm and town game bug tracker
 8. gold and level don't fetch there values on load - DONE
 9. some crops frozen on load - DONE
 10. sometimes hud maybe gets out of whack on opening perk menu? - DONE
+11. text doesn't moe with buttons on perk screen
 

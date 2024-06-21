@@ -19,7 +19,6 @@ func getDescriptionText():
 	if (descriptionType == 'perk' or descriptionType == 'stat'):
 		return '{descriptionName}'.format({'descriptionName':descriptionName})
 	return 'New {descriptionType}: {descriptionName}'.format({'descriptionType':descriptionType, 'descriptionName':descriptionName})
-	
 
 var descriptionType
 var descriptionName
@@ -32,25 +31,24 @@ func _ready():
 	descriptionChild = $'Description'
 	descriptionType = 'testType'
 	descriptionName = 'testName'
-	
 
 func setSprite(spriteFrames):
 	spriteChild.sprite_frames = spriteFrames
-	
+
 func setType(type):
 	descriptionType = type
 	updateDescriptionText()
-	
+
 func setName(descName):
 	descriptionName = descName
 	updateDescriptionText()
-	
+
 func setGroupName(group:String):
 	groupName = group
 
 func setIndex(idx:int):
 	index = idx
-	
+
 func setSelectable(selectable):
 	isSelectable = selectable
 	showCorrectPanel()
@@ -64,17 +62,14 @@ func showCorrectPanel():
 		panelToUse = panel
 		panel.show()
 		selectablePanel.hide()
-	
-	
 
 func setSelected():
+	print('setting to fram 1')
 	panelToUse.frame = 1
 
 func setUnselected():
+	print('setting to fram 0')
 	panelToUse.frame = 0
-	
-
-		
 
 func updateDescriptionText():
 	descriptionChild.text = descriptionText
@@ -83,6 +78,6 @@ func updateDescriptionText():
 	else:
 		descriptionChild.position.x = textPositionWithSprite
 
-
 func _on_temp_button_button_down():
+	print('temp utton down')
 	emit_signal("DisplaySelected", groupName, index)
