@@ -5,5 +5,7 @@ farm and town game bug tracker
 4. can't click plot because tool tip blocks - DONE
 5. tool tip and other hud elements hidden on game start - DONE
 6. sometimes perkscreen appears on load and won't go away - DONE
-7. figure out if crop_toolbar - load data is unused
+7. figure out if crop_toolbar - load data is unused - DONE
 8. gold and level don't fetch there values on load
+9. some crops frozen on load 
+

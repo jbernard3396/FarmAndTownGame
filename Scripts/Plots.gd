@@ -133,14 +133,6 @@ func save():
 		"numPlots": currentTotalPlots
 	}
 
-#todo:I think this is unused and can be removed?
-func load_data(data):
-	if (!data):
-		return
-		
-	for i in data.numPlots:
-		create_new_plot(false)
-		
 func load_crop(data):
 	if (!data):
 		return
