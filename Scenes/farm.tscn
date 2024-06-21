@@ -21,7 +21,6 @@ script = ExtResource("1_rpkb8")
 [node name="Plots" parent="." instance=ExtResource("1_5ggqb")]
 
 [node name="HUD" parent="." instance=ExtResource("9_hd85l")]
-visible = false
 offset = Vector2(0, -10)
 transform = Transform2D(1, 0, 0, 1, 0, -10)
 

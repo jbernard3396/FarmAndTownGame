@@ -15,6 +15,7 @@ func _ready():
 	wholeGroup = get_parent()
 	EventBus.connect('itemSelected', handleItemSelected)
 	EventBus.connect('nothingSelected', handleNothingSelected)
+	_on_expand_collapse_button_pressed()
 
 func handleItemSelected(item):
 	storedText = '[b]'+item.displayName+'[/b]' + ': ' + item.description
