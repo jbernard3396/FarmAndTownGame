@@ -17,6 +17,10 @@ func instantiate():
 	EventBus.connect("fertilizerChanged", update_selected)
 	EventBus.connect("itemSelected", processItemSelected)
 	EventBus.connect("nothingSelected", processNothingSelected)
+	EventBus.connect('gameLoaded', processGameLoaded)
+
+func processGameLoaded():
+	update_purchaseable()
 	
 	
 

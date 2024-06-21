@@ -17,7 +17,6 @@ func _ready():
 	loadFertilizers()
 	EventBus.connect('toolbarOpened', processToolbarOpened)
 
-
 func processToolbarOpened(toolbarOpenedName):
 	show()
 	if toolbarOpenedName != name:
