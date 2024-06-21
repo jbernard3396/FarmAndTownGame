@@ -64,12 +64,12 @@ func showCorrectPanel():
 		selectablePanel.hide()
 
 func setSelected():
-	print('setting to fram 1')
 	panelToUse.frame = 1
+	descriptionChild.position.y += 2
 
 func setUnselected():
-	print('setting to fram 0')
 	panelToUse.frame = 0
+	descriptionChild.position.y -= 2
 
 func updateDescriptionText():
 	descriptionChild.text = descriptionText

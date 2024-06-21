@@ -9,5 +9,5 @@ farm and town game bug tracker
 8. gold and level don't fetch there values on load - DONE
 9. some crops frozen on load - DONE
 10. sometimes hud maybe gets out of whack on opening perk menu? - DONE
-11. text doesn't moe with buttons on perk screen
+11. text doesn't move with buttons on perk screen - DONE
 
