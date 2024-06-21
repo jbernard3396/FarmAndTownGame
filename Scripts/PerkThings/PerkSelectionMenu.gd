@@ -143,4 +143,4 @@ func _on_confirmation_button_pressed():
 	populatePerks()
 	EventBus.emit_signal('nothingSelected')
 	if(PlayerContext.currentPerkPoints<= 0):
-		hidePanel()
+		EventBus.emit_signal("opened", "")
