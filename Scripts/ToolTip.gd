@@ -19,8 +19,7 @@ func _ready():
 
 func handleItemSelected(item):
 	storedText = '[b]'+item.displayName+'[/b]' + ': ' + item.description
-	if(expanded):
-		text= storedText
+	text= storedText
 	
 func handleNothingSelected():
 	pass
