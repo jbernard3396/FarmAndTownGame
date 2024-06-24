@@ -17,5 +17,5 @@ farm and town game bug and feature tracker
 16. perk screen DOESN'T cover collectables
 17. collactables still go to corner, instead of gold display I guess
 18. no way to manually save
-19. instructions?
+19. instructions - panel with panel options
 
