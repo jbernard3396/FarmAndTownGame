@@ -18,5 +18,5 @@ farm and town game bug and feature tracker
 17. collactables still go to corner, instead of gold display I guess
 18. no way to manually save - DONE
 19. instructions - panel with panel options - DONE
-20. closing achievement does not open tooltip
+20. closing achievement does not open tooltip - DONE
 

@@ -42,7 +42,11 @@ func processOpened(panelOpened):
 	else:
 		currentPage = 0
 		displayCurrentPage()
-		visible = !visible
+		if(!visible):
+			visible = true
+		else: 
+			EventBus.emit_signal("opened", '')
+			visible = false
 
 func updateExisting(achievement):
 	if(!(achievement is Achievement)):
