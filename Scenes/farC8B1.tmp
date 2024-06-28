@@ -111,9 +111,9 @@ offset_right = 35.08
 offset_bottom = 5.0
 
 [node name="SettingsDropDown" parent="." instance=ExtResource("15_m8fxf")]
-offset_left = 173.0
+offset_left = 152.0
 offset_top = 2.0
-offset_right = 173.0
+offset_right = 152.0
 offset_bottom = 2.0
 
 [connection signal="pressed" from="Debug/gold up" to="Debug" method="_on_gold_up_pressed"]

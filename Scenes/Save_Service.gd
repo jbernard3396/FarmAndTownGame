@@ -13,6 +13,7 @@ func _ready():
 	print('loading...')
 	loadGame()
 	print('finished loading!')
+	EventBus.connect('saveAndQuit', saveAndQuit)
 
 # when save is input perform save
 func _process(delta):
@@ -146,3 +147,6 @@ func save_crop_game_state(save_game):
 		var json_string = JSON.stringify(node_data)
 		save_game.store_line(json_string)
 	
+func saveAndQuit():
+	save()
+	get_tree().quit()

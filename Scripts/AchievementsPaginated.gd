@@ -22,7 +22,7 @@ func _ready():
 	visible = false
 	EventBus.connect('loaded', updateExisting)
 	EventBus.connect('achieved', updateAchieved)
-	EventBus.connect('opened', closePanel)
+	EventBus.connect('opened', processOpened)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +35,15 @@ func _process(_delta):
 			visible = true
 		else: 
 			EventBus.emit_signal("opened", '')
+			
+func processOpened(panelOpened):
+	if(panelOpened != panelName):
+		hide()
+	else:
+		currentPage = 0
+		displayCurrentPage()
+		visible = !visible
 
-		
 func updateExisting(achievement):
 	if(!(achievement is Achievement)):
 		return
@@ -48,10 +55,6 @@ func updateAchieved(achievement):
 	var itemIndex = items.find(achievement)
 
 	achievementObjects[itemIndex].achieved()
-	
-func closePanel(panelOpened):
-	if(panelOpened != panelName):
-		hide()
 
 func updateLastPage():
 	lastPage = Utils.intDiv(achievementObjects.size()-1,(columns*rows))

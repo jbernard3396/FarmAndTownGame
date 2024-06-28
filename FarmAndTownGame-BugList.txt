@@ -16,6 +16,7 @@ farm and town game bug and feature tracker
 15. perk screen covers tool tips
 16. perk screen DOESN'T cover collectables
 17. collactables still go to corner, instead of gold display I guess
-18. no way to manually save
-19. instructions - panel with panel options
+18. no way to manually save - DONE
+19. instructions - panel with panel options - DONE
+20. closing achievement does not open tooltip
 

@@ -23,7 +23,7 @@ var nextUnlockYPos:int = 0
 func _ready():
 	hide()
 	EventBus.connect('harvested', updateList)
-	EventBus.connect('opened', closePanel)
+	EventBus.connect('opened', processOpenPanel)
 	EventBus.connect('gameLoaded', initiateList)
 	resetPositions()
 	
@@ -34,9 +34,12 @@ func _process(_delta):
 			EventBus.emit_signal("opened", panelName)
 		visible = !visible
 
-func closePanel(panelOpened):
+func processOpenPanel(panelOpened):
 	if(panelOpened != panelName):
 		hide()
+	else:
+		visible = !visible
+	
 		
 func initiateList():
 	var cropList = FarmStatistics.cropsCollected

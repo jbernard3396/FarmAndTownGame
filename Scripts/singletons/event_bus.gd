@@ -17,3 +17,4 @@ signal achieved(achievement)
 signal allSingletonsLoaded
 signal gainNewPlot
 signal gameLoaded
+signal saveAndQuit

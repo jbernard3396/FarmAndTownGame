@@ -1,0 +1,170 @@
+[gd_scene load_steps=18 format=3 uid="uid://b5coh00ytqrna"]
+
+[ext_resource type="Script" path="res://Scripts/settings_drop_down.gd" id="1_eb6px"]
+[ext_resource type="PackedScene" uid="uid://d0cvrgahjpbks" path="res://Scenes/Button.tscn" id="1_kpxe4"]
+[ext_resource type="Texture2D" uid="uid://bjwb2cq6qx4il" path="res://Assets/Sprout Lands - UI Pack - Premium pack/UI Sprites/Custom/SettingsDropDown.png" id="2_wiby8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us3bd"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(144, 0, 144, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yarw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us3bd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxgfc"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(0, 68, 144, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajt2v"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(144, 170, 144, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5grkq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxgfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajt2v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qea8"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(0, 102, 144, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyvlx"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(144, 204, 144, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmryg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qea8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyvlx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeukq"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(144, 136, 144, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63khg"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(0, 272, 144, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u088k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeukq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63khg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3ms7"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(144, 306, 144, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6emu"]
+atlas = ExtResource("2_wiby8")
+region = Rect2(0, 340, 144, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pld5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3ms7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6emu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SettingsDropDown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eb6px")
+
+[node name="DropDownBlock" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 144.0
+offset_bottom = 34.0
+mouse_filter = 2
+
+[node name="ToolBar" type="AnimatedSprite2D" parent="DropDownBlock"]
+position = Vector2(44, 0)
+sprite_frames = SubResource("SpriteFrames_yarw6")
+centered = false
+
+[node name="Achievements" parent="DropDownBlock" instance=ExtResource("1_kpxe4")]
+offset_left = 49.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 27.0
+mouse_filter = 2
+spriteImages = SubResource("SpriteFrames_5grkq")
+buttonAreaWidth = 20
+buttonAreaHeight = 22
+
+[node name="Stats" parent="DropDownBlock" instance=ExtResource("1_kpxe4")]
+offset_left = 71.0
+offset_top = 5.0
+offset_right = 91.0
+offset_bottom = 27.0
+spriteImages = SubResource("SpriteFrames_mmryg")
+buttonAreaWidth = 22
+buttonAreaHeight = 20
+
+[node name="Quit" parent="DropDownBlock" instance=ExtResource("1_kpxe4")]
+offset_left = 93.0
+offset_top = 5.0
+offset_right = 113.0
+offset_bottom = 27.0
+spriteImages = SubResource("SpriteFrames_u088k")
+buttonAreaWidth = 20
+buttonAreaHeight = 22
+
+[node name="OpenCloseButton" parent="." instance=ExtResource("1_kpxe4")]
+offset_left = 124.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 30.0
+spriteImages = SubResource("SpriteFrames_pld5o")
+buttonAreaWidth = 20
+buttonAreaHeight = 20
+
+[connection signal="pressed" from="DropDownBlock/Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="DropDownBlock/Stats" to="." method="_on_stats_pressed"]
+[connection signal="pressed" from="DropDownBlock/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="OpenCloseButton" to="." method="_on_open_close_button_pressed"]
