@@ -160,7 +160,7 @@ func spawnCollectableCrop():
 	var bouncyCrop = bouncyCollectable.instantiate()
 	add_child(bouncyCrop)
 	bouncyCrop.position = Vector2.ZERO
-	bouncyCrop.z_index += 39
+	bouncyCrop.z_index += .5
 	bouncyCrop.collectableItem = plantedCrop
 	bouncyCrop.collectionPosition.x = to_local(get_viewport_rect().size).x
 	bouncyCrop.collectionPosition.y = to_local(get_viewport_rect().size).y
