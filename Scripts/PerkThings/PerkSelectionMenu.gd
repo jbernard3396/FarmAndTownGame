@@ -5,7 +5,7 @@ extends Control
 var panelName = "perksSelectionMenu"
 var items = []
 var perkObjects = []
-var numPerksToPopulate = 3
+var numPerksToPopulate = 2
 var selectedPerkIndex: int = -1
 var type:String = 'perk'
 

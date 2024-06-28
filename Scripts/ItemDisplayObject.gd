@@ -79,5 +79,4 @@ func updateDescriptionText():
 		descriptionChild.position.x = textPositionWithSprite
 
 func _on_temp_button_button_down():
-	print('temp utton down')
 	emit_signal("DisplaySelected", groupName, index)

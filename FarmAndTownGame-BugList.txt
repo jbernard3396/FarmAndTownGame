@@ -13,7 +13,7 @@ farm and town game bug and feature tracker
 12. tooltip doesn't update when closed - DONE
 13. crop tool tips unreadable
 14. autosave - DONE
-15. perk screen covers tool tips
+15. perk screen covers tool tips - DONE
 16. perk screen DOESN'T cover collectables
 17. collactables still go to corner, instead of gold display I guess
 18. no way to manually save - DONE
