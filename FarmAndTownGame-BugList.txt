@@ -12,6 +12,8 @@ farm and town game bug and feature tracker
 11. text doesn't move with buttons on perk screen - DONE
 12. tooltip doesn't update when closed - DONE
 13. crop tool tips unreadable
+ 	Use the system from Farm Together where the display is just symbols and numbers
+	e.g. gold coin - 7, clock - 1h30m, etc.
 14. autosave - DONE
 15. perk screen covers tool tips - DONE
 16. perk screen DOESN'T cover collectables - DONE
@@ -19,4 +21,4 @@ farm and town game bug and feature tracker
 18. no way to manually save - DONE
 19. instructions - panel with panel options - DONE
 20. closing achievement does not open tooltip - DONE
-
+21. tool tip next to mouse as you hover over crops with that simple system

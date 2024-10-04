@@ -6,5 +6,5 @@ func _ready():
 
 func perksChanged():
 	print('setting perks')
-	var perks = PlayerContext.currentPerkPoints
-	text = 'Perk Points: {a}'.format({"a": perks}) 
+	var currentPerkPoints = PlayerContext.currentPerkPoints
+	text = 'Perk Points: {a}'.format({"a": currentPerkPoints}) 

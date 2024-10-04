@@ -30,6 +30,7 @@ func populatePerk(perkKey):
 			continue
 		newPerk[key] = perk[key]
 	newPerk.claimed = 0
+	#todo:J this makes no sense when packaged
 	newPerk.discipline = "farm"
 	newPerk.function = Callable(Functions, newPerk.function)
 	newPerk.requirements = []
@@ -51,6 +52,7 @@ func claim(perkName):
 				return
 			print('claiming: {perk}'.format({'perk':perks[perkKey].displayName}))
 			claimedPerk.claimed += 1
+# TODO:J package up playerContext 
 			PlayerContext.spendPerkPoints(1)
 			applyInstantPerk(claimedPerk)
 			
@@ -63,6 +65,7 @@ func levelRequirement(arguments):
 	var level = arguments[0]
 	return PlayerContext.currentLevel >= level
 	
+#todo:J figure out how to package save nicely
 func save():
 	var saveArray = []
 	for perk in perks:
@@ -71,7 +74,7 @@ func save():
 			saveArray.append(perks[perk].save())
 	return saveArray
 	
-	
+#todo:J figure out how to package load nicely
 func load_data(data):
 	if (!data):
 		return

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cin0c4sfoidos" path="res://Scenes/Toolbar.tscn" id="9_raxtq"]
 [ext_resource type="PackedScene" uid="uid://bycsb7cmp6wq6" path="res://Scenes/LevelUpNotification.tscn" id="10_8ma6a"]
 [ext_resource type="PackedScene" uid="uid://dsrashcy34bjr" path="res://Scenes/achievement_notification.tscn" id="11_k8jlg"]
-[ext_resource type="PackedScene" uid="uid://cx6ykcn6xdvq6" path="res://Scenes/PerkSelectionMenuV2.tscn" id="12_aew47"]
+[ext_resource type="PackedScene" uid="uid://cx6ykcn6xdvq6" path="res://CustomPackages/PerkPackage/PerkSelectionMenuV2.tscn" id="12_aew47"]
 [ext_resource type="PackedScene" uid="uid://j1uj0knc7fm7" path="res://Scenes/achievementsPaginated.tscn" id="14_d711x"]
 [ext_resource type="PackedScene" uid="uid://b5coh00ytqrna" path="res://Scenes/settings_drop_down.tscn" id="15_m8fxf"]
 [ext_resource type="PackedScene" uid="uid://c88su532u813o" path="res://Scenes/Achievement.tscn" id="15_sbjek"]

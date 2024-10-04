@@ -29,8 +29,6 @@ func _ready():
 	EventBus.connect('opened', processOpenPanel)
 	EventBus.connect('nothingSelected', processNothingSelected)
 
-
-
 func _process(_delta):
 	#todo: this doesn't appear to work
 	if(Input.is_action_just_pressed("ShowPerks")):

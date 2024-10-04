@@ -80,6 +80,7 @@ func changeImageColor(image: Image):
 				var halfAlphaColor = Color(originalPixelColor, .5)
 				image.set_pixel(x,y, Color(1,1,.5).blend(halfAlphaColor))
 
+#this needs to be replaced with a shader
 func makeSpriteFramesShiny(sprites: SpriteFrames):
 	var numImages = sprites.get_frame_count('default')
 	var newSprites = SpriteFrames.new()
